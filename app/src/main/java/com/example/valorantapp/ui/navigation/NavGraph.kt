@@ -23,7 +23,7 @@ fun NavGraph(
 
         composable("${Screen.AgentDetail.route}/{uuid}") { backStackEntry ->
             val uuid = backStackEntry.arguments?.getString("uuid") ?: ""
-            AgentDetailScreen(uuid = uuid)
+            AgentDetailScreen(uuid = uuid, navController = navController)
         }
     }
 }

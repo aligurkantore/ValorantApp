@@ -15,7 +15,7 @@ fun AgentResponseItem.toUIModel(): AgentUIModel {
     )
 }
 
-fun AgentDetailResponseItem.toUIModel(): AgentDetailUI {
+fun AgentDetailResponseItem.mapToUIModel(): AgentDetailUI {
     return AgentDetailUI(
         displayName = this.displayName,
         bustImageUrl = this.bustPortrait,

@@ -24,55 +24,56 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.valorantapp.domain.model.agents.AgentUIModel
+import com.example.valorantapp.domain.model.agentdetail.AbilityUI
 
 @Composable
-fun AgentListItem(
-    agent: AgentUIModel,
+fun AgentAbilityItem(
+    ability: AbilityUI,
     onClick: (String) -> Unit
 ) {
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(12.dp)
-            .clickable { onClick(agent.uuid) },
+            .clickable { onClick(ability.name) }
+            .padding(4.dp),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF1A1A1A))
     ) {
         Column(
             modifier = Modifier
-                .fillMaxHeight()
+                .fillMaxWidth()
                 .padding(16.dp)
                 .border(
                     width = 2.dp,
-                    color = Color.Red,
+                    color = Color.DarkGray,
                     shape = RoundedCornerShape(12.dp)
                 )
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = agent.name.uppercase(),
-                style = MaterialTheme.typography.titleMedium,
-                color = Color.White
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(agent.imageUrl)
+                    .data(ability.url)
                     .crossfade(true)
                     .build(),
-                contentDescription = agent.name,
+                contentDescription = ability.name,
                 modifier = Modifier
-                    .size(100.dp)
+                    .size(70.dp)
                     .fillMaxHeight()
                     .clip(RoundedCornerShape(12.dp)),
                 contentScale = ContentScale.Crop
             )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = ability.name,
+                style = MaterialTheme.typography.titleMedium,
+                color = Color.White
+            )
         }
     }
-}
 
+}

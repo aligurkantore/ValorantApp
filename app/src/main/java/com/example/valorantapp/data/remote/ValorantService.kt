@@ -1,6 +1,5 @@
 package com.example.valorantapp.data.remote
 
-import com.example.valorantapp.common.util.Resource
 import com.example.valorantapp.data.model.response.agentdetail.AgentDetailResponse
 import com.example.valorantapp.data.model.response.agents.AgentsResponse
 import com.example.valorantapp.data.model.response.competitivetiers.CompetitivetiersResponse
