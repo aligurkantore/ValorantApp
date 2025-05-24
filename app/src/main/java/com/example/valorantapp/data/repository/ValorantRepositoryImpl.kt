@@ -4,6 +4,7 @@ import androidx.paging.PagingData
 import com.example.valorantapp.common.base.BaseRepository
 import com.example.valorantapp.common.util.onSuccess
 import com.example.valorantapp.data.model.response.agents.AgentResponseItem
+import com.example.valorantapp.data.model.response.maps.MapResponseItem
 import com.example.valorantapp.data.remote.ValorantService
 import com.example.valorantapp.domain.repository.ValorantRepository
 import kotlinx.coroutines.flow.Flow
@@ -22,6 +23,18 @@ class ValorantRepositoryImpl(
 
     override suspend fun getAgentDetail(uuid: String) = safeApiCall {
         service.getAgentDetail(uuid)
+    }
+
+    override suspend fun getMaps(): Flow<PagingData<MapResponseItem>> {
+        return safeApiCallPaging { page, pageSize ->
+            safeApiCall { service.getMaps() }.onSuccess { response ->
+                response.mapResponseItems
+            }
+        }
+    }
+
+    override suspend fun getMapDetails(uuid: String) = safeApiCall {
+        service.getMapDetail(uuid)
     }
 
 

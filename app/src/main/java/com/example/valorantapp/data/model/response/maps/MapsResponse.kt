@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName
 
 data class MapsResponse(
     @SerializedName("data")
-    val `data`: List<Data>,
+    val mapResponseItems: List<MapResponseItem>,
     @SerializedName("status")
     val status: Int
 )
 
-data class Data(
+data class MapResponseItem(
     @SerializedName("assetPath")
     val assetPath: String,
     @SerializedName("callouts")

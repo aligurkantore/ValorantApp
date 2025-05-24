@@ -1,13 +1,11 @@
 package com.example.valorantapp.ui.navigation
 
-sealed class Screen(val route: String) {
-    object Splash : Screen("splash_screen")
-    object Main : Screen("main_screen")
-    object Agents : Screen("agents_screen")
-    object AgentDetail : Screen("agent_detail_screen")
-    object Maps : Screen("maps_screen")
-    object MapDetail : Screen("map_detail_screen")
-    object Weapons : Screen("weapons_screen")
-    object WeaponDetail : Screen("weapon_detail_screen")
-    object CompetitiveTiers : Screen("competitive_tiers_screen")
+sealed class Screen(val route: String, val title: String) {
+    object Agents : Screen("agents_screen", "Agents")
+    object AgentDetail : Screen("agent_detail_screen","AgentDetail")
+    object Maps : Screen("maps_screen","Maps")
+    object MapDetail : Screen("map_detail_screen","MapDetail")
+    object Weapons : Screen("weapons_screen","Weapons")
+    object WeaponDetail : Screen("weapon_detail_screen","WeaponDetail")
+    object CompetitiveTiers : Screen("competitive_tiers_screen","CompetitiveTiers")
 }

@@ -8,6 +8,7 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.9.0"
 activityCompose = "1.10.1"
+materialIconsExtended = "<versiyon>"
 pagingComposeVersion = "1.0.0-alpha20"
 paging = "3.2.0"
 composeBom = "2024.09.00"
@@ -23,6 +24,7 @@ coil = "2.4.0"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+androidx-material-icons-extended-vversiyon = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
 androidx-paging-compose-v100alpha20 = { module = "androidx.paging:paging-compose", version.ref = "pagingComposeVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

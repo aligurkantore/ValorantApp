@@ -25,7 +25,7 @@ interface ValorantService {
     suspend fun getMaps(): Response<MapsResponse>
 
     @GET("v1/maps/{mapUuid}")
-    suspend fun getMapByUuid(
+    suspend fun getMapDetail(
         @Path("mapUuid") mapUuid: String
     ): Response<MapDetailResponse>
 
@@ -33,7 +33,7 @@ interface ValorantService {
     suspend fun getWeapons(): Response<WeaponsResponse>
 
     @GET("v1/weapons/{weaponUuid}")
-    suspend fun getWeaponByUuid(
+    suspend fun getWeaponDetail(
         @Path("weaponUuid") weaponUuid: String
     ): Response<WeaponDetailResponse>
 
