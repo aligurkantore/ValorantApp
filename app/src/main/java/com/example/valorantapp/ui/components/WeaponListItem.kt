@@ -1,13 +1,13 @@
 package com.example.valorantapp.ui.components
 
-import androidx.compose.foundation.border
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -23,18 +23,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.valorantapp.domain.model.agents.AgentUIModel
+import com.example.valorantapp.domain.model.weapons.WeaponUI
 
 @Composable
-fun AgentListItem(
-    agent: AgentUIModel,
+fun WeaponListItem(
+    weapon:WeaponUI,
     onClick: (String) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 12.dp, vertical = 8.dp)
-            .clickable { onClick(agent.uuid) },
+            .clickable { onClick(weapon.uuid) }
+            .background(Color.Gray),
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF1A1A1A))
@@ -42,17 +43,11 @@ fun AgentListItem(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(4.dp)
-                .border(
-                    width = 2.dp,
-                    color = Color.Red,
-                    shape = RoundedCornerShape(12.dp)
-                )
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = agent.name.uppercase(),
+                text = weapon.name.uppercase(),
                 style = MaterialTheme.typography.titleMedium,
                 color = Color.White
             )
@@ -61,17 +56,15 @@ fun AgentListItem(
 
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(agent.imageUrl)
+                    .data(weapon.iconUrl)
                     .crossfade(true)
                     .build(),
-                contentDescription = agent.name,
+                contentDescription = weapon.name,
                 modifier = Modifier
-                    .size(100.dp)
+                    .fillMaxSize()
                     .clip(RoundedCornerShape(12.dp)),
                 contentScale = ContentScale.Crop
             )
         }
     }
 }
-
-

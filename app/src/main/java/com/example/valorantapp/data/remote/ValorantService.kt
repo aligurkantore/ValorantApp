@@ -2,7 +2,6 @@ package com.example.valorantapp.data.remote
 
 import com.example.valorantapp.data.model.response.agentdetail.AgentDetailResponse
 import com.example.valorantapp.data.model.response.agents.AgentsResponse
-import com.example.valorantapp.data.model.response.competitivetiers.CompetitivetiersResponse
 import com.example.valorantapp.data.model.response.mapdetail.MapDetailResponse
 import com.example.valorantapp.data.model.response.maps.MapsResponse
 import com.example.valorantapp.data.model.response.weapons.WeaponsResponse
@@ -37,6 +36,4 @@ interface ValorantService {
         @Path("weaponUuid") weaponUuid: String
     ): Response<WeaponDetailResponse>
 
-    @GET("v1/competitivetiers")
-    suspend fun getCompetitiveTiers(): Response<CompetitivetiersResponse>
 }

@@ -7,5 +7,4 @@ sealed class Screen(val route: String, val title: String) {
     object MapDetail : Screen("map_detail_screen","MapDetail")
     object Weapons : Screen("weapons_screen","Weapons")
     object WeaponDetail : Screen("weapon_detail_screen","WeaponDetail")
-    object CompetitiveTiers : Screen("competitive_tiers_screen","CompetitiveTiers")
 }

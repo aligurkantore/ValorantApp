@@ -7,9 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.valorantapp.ui.screen.agentdetail.AgentDetailScreen
 import com.example.valorantapp.ui.screen.agents.AgentsScreen
-import com.example.valorantapp.ui.screen.competitivetiers.CompetitivetiersScreen
 import com.example.valorantapp.ui.screen.mapdetail.MapDetailScreen
 import com.example.valorantapp.ui.screen.maps.MapsScreen
+import com.example.valorantapp.ui.screen.weapondetail.WeaponDetailScreen
 import com.example.valorantapp.ui.screen.weapons.WeaponsScreen
 
 @Composable
@@ -44,8 +44,9 @@ fun NavGraph(
             WeaponsScreen(navController = navController)
         }
 
-        composable(Screen.CompetitiveTiers.route) {
-            CompetitivetiersScreen(navController = navController)
+        composable("${Screen.WeaponDetail.route}/{uuid}") { backStackEntry ->
+            val uuid = backStackEntry.arguments?.getString("uuid") ?: ""
+            WeaponDetailScreen(uuid = uuid, navController = navController)
         }
     }
 }

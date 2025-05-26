@@ -5,6 +5,7 @@ import com.example.valorantapp.common.base.BaseRepository
 import com.example.valorantapp.common.util.onSuccess
 import com.example.valorantapp.data.model.response.agents.AgentResponseItem
 import com.example.valorantapp.data.model.response.maps.MapResponseItem
+import com.example.valorantapp.data.model.response.weapons.WeaponResponseItem
 import com.example.valorantapp.data.remote.ValorantService
 import com.example.valorantapp.domain.repository.ValorantRepository
 import kotlinx.coroutines.flow.Flow
@@ -35,6 +36,18 @@ class ValorantRepositoryImpl(
 
     override suspend fun getMapDetails(uuid: String) = safeApiCall {
         service.getMapDetail(uuid)
+    }
+
+    override suspend fun getWeapons(): Flow<PagingData<WeaponResponseItem>> {
+        return safeApiCallPaging { page, pageSize ->
+            safeApiCall { service.getWeapons() }.onSuccess { response ->
+                response.weaponResponseItems
+            }
+        }
+    }
+
+    override suspend fun getWeaponDetails(uuid: String) = safeApiCall {
+        service.getWeaponDetail(uuid)
     }
 
 

@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName
 
 data class WeaponDetailResponse(
     @SerializedName("data")
-    val `data`: Data,
+    val weaponDetailResponseItem: WeaponDetailResponseItem,
     @SerializedName("status")
     val status: Int
 )
 
-data class Data(
+data class WeaponDetailResponseItem(
     @SerializedName("assetPath")
     val assetPath: String,
     @SerializedName("category")
@@ -51,13 +51,13 @@ data class WeaponStats(
     @SerializedName("fireMode")
     val fireMode: Any,
     @SerializedName("fireRate")
-    val fireRate: Int,
+    val fireRate: Double,
     @SerializedName("firstBulletAccuracy")
     val firstBulletAccuracy: Double,
     @SerializedName("magazineSize")
     val magazineSize: Int,
     @SerializedName("reloadTimeSeconds")
-    val reloadTimeSeconds: Int,
+    val reloadTimeSeconds: Double,
     @SerializedName("runSpeedMultiplier")
     val runSpeedMultiplier: Double,
     @SerializedName("shotgunPelletCount")

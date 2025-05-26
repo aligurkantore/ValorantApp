@@ -6,6 +6,8 @@ import com.example.valorantapp.data.model.response.agentdetail.AgentDetailRespon
 import com.example.valorantapp.data.model.response.agents.AgentResponseItem
 import com.example.valorantapp.data.model.response.mapdetail.MapDetailResponse
 import com.example.valorantapp.data.model.response.maps.MapResponseItem
+import com.example.valorantapp.data.model.response.weapons.WeaponResponseItem
+import com.example.valorantapp.data.model.response.weaponsdetail.WeaponDetailResponse
 import kotlinx.coroutines.flow.Flow
 
 interface ValorantRepository {
@@ -17,4 +19,8 @@ interface ValorantRepository {
     suspend fun getMaps() : Flow<PagingData<MapResponseItem>>
 
     suspend fun getMapDetails(uuid: String): Resource<MapDetailResponse>
+
+    suspend fun getWeapons(): Flow<PagingData<WeaponResponseItem>>
+
+    suspend fun getWeaponDetails(uuid: String): Resource<WeaponDetailResponse>
 }

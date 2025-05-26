@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName
 
 data class WeaponsResponse(
     @SerializedName("data")
-    val `data`: List<Data>,
+    val weaponResponseItems: List<WeaponResponseItem>,
     @SerializedName("status")
     val status: Int
 )
 
-data class Data(
+data class WeaponResponseItem(
     @SerializedName("assetPath")
     val assetPath: String,
     @SerializedName("category")
