@@ -15,7 +15,7 @@ class ValorantRepositoryImpl(
 ) : BaseRepository(), ValorantRepository {
 
     override suspend fun getAgents(): Flow<PagingData<AgentResponseItem>> {
-        return safeApiCallPaging { page, pageSize ->
+        return safeApiCallPaging { _, _ ->
             safeApiCall { service.getAgents() }.onSuccess { response ->
                 response.agentResponseItems
             }
@@ -27,7 +27,7 @@ class ValorantRepositoryImpl(
     }
 
     override suspend fun getMaps(): Flow<PagingData<MapResponseItem>> {
-        return safeApiCallPaging { page, pageSize ->
+        return safeApiCallPaging { _, _ ->
             safeApiCall { service.getMaps() }.onSuccess { response ->
                 response.mapResponseItems
             }
@@ -39,7 +39,7 @@ class ValorantRepositoryImpl(
     }
 
     override suspend fun getWeapons(): Flow<PagingData<WeaponResponseItem>> {
-        return safeApiCallPaging { page, pageSize ->
+        return safeApiCallPaging { _, _ ->
             safeApiCall { service.getWeapons() }.onSuccess { response ->
                 response.weaponResponseItems
             }
